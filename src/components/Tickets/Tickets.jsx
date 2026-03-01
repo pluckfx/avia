@@ -1,17 +1,13 @@
-import React from 'react'
-import s from './Tickets.module.css'
+import React from "react";
+import s from "./Tickets.module.css";
 
-export const Tickets = (props) => {
+export const Tickets = ({ onSort }) => {
   return (
     <div className={s.container}>
-        <div className={s.title}>Сортировать билеты</div>
-        {props.checkboxArr.map(element => {
-            return(
-             <label key={element.id} className={s.select}>
-                <input type="radio" name='tickets' onChange={()=>{props.filterArr(element.id)}}/>
-                <span>{element.caps}</span>
-             </label>)
-        })}
+      <button onClick={() => onSort("pUp")}>Цена ↑</button>
+      <button onClick={() => onSort("pDown")}>Цена ↓</button>
+      <button onClick={() => onSort("tUp")}>Время ↑</button>
+      <button onClick={() => onSort("tDown")}>Время ↓</button>
     </div>
-  )
-}
+  );
+};
